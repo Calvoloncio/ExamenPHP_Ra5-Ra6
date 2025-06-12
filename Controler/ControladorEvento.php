@@ -32,7 +32,19 @@ class EventoController {
         $artista = $_POST["artista"];
         $lugar = $_POST["lugar"];
         $tipo_evento = $_POST["tipo_evento"];
+        $estado = $_POST["estado"];
 
+
+        $estadoValido = ['activo', 'no activo'];
+            if (!in_array(strtolower($estado), $estadoValido)) {
+                echo "El estado debe ser 'activo' o 'no activo'.";
+                return false;
+            }
+
+        if (empty($estado)) {
+        echo "El tipo de estado es obligatorio.";
+        return false;
+        }
         $imagenNombre = null;
 
         if (isset($_FILES["imagen"]) && $_FILES["imagen"]["error"] == 0) {
@@ -59,12 +71,12 @@ class EventoController {
         }
         echo __LINE__;
         
-        $query = "INSERT INTO eventos (fecha, artista, lugar, tipo_evento, imagen) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO eventos (fecha, artista, lugar, tipo_evento, estado,  imagen) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($query);
         echo __LINE__;
 
         try {
-            if ($stmt->execute([$fecha, $artista, $lugar, $tipo_evento, $imagenNombre])) {
+            if ($stmt->execute([$fecha, $artista, $lugar, $tipo_evento,$estado, $imagenNombre])) {
             //     header("Location: ../View/eventos/eventos.php");
             //     return true;
             }

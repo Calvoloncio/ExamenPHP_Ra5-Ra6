@@ -31,10 +31,12 @@ $eventos = $eventoController->leer();
                         <p class="fecha"><?php echo htmlspecialchars($evento['fecha']); ?></p>
                         <p class="lugar"><?php echo htmlspecialchars($evento['lugar']); ?></p>
                         <p class="tipo"><?php echo htmlspecialchars($evento['tipo_evento']); ?></p>
+                        <p class="estado"><?php echo htmlspecialchars($evento['estado']); ?></p>
+
                         </form>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php endforeach; ?>    
         </div>
 
 

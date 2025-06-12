@@ -56,7 +56,13 @@
     <input type="text" name="tipo_evento"><br>
 
     <label>Imagen:</label>
-    <input type="file" name="imagen" />
+    <input type="file" name="imagen" /><br>
+
+        <label>Estado:</label>
+    <select name="estado" required>
+            <option value="activo">Activo</option>
+            <option value="no activo">No activo</option>
+    </select><br>
 
     <button type="submit" name="crear_evento">Crear evento</button>
 </form>
