@@ -31,7 +31,7 @@
                 <input type="email" id="email" name="email" placeholder="tu@gmail.com"><br><br>
             </div>
             <div class="input-group">
-                <input type="telefono" id="telefono" name="telefono"  pattern="^[0-9]{9}$" title="Debe ingresar 9 dígitos" placeholder="Numero de Telefono" required><br><br>
+                <input type="telefono" id="telefono" name="telefono"   title="Debe ingresar 11 dígitos" placeholder="Numero de Telefono" ><br><br>
             </div>
             <div class="input-group">
                 <input type="password" id="password" name="password" placeholder="Crea una contraseña segura"><br><br>

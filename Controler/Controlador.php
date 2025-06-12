@@ -88,6 +88,15 @@ class UserController {
             return false;
         }
 
+        if (empty($telefono)) {
+        echo "El número de teléfono es obligatorio.";
+        return false;
+        }
+        if (!preg_match('/^\d{11}$/', $telefono)) {
+        echo "El número de teléfono debe contener exactamente 11 dígitos numéricos.";
+        return false;
+        }
+
         $imagenNombre = null;
 
         if (isset($_FILES["imagen"]) && $_FILES["imagen"]["error"] == 0) {

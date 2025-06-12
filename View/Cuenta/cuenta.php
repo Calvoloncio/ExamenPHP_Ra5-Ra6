@@ -9,11 +9,13 @@ if (session_status() === PHP_SESSION_NONE) {
 $email = $_SESSION["email"] ?? null;
 $imagen = null;
 $nameN = null;
+$telefono = null;
+
 
 if ($email) {
     $userController = new UserController();
 
-    $query = "SELECT nameN, imagen FROM usuarios WHERE email = ?";
+    $query = "SELECT nameN, imagen, telefono FROM usuarios WHERE email = ?";
     $stmt = $userController->getConnection()->prepare($query);
     $stmt->execute([$email]);
     $row = $stmt->fetch();
@@ -21,6 +23,7 @@ if ($email) {
     if ($row) {
         $imagen = $row["imagen"];
         $nameN = $row["nameN"];
+        $telefono = $row["telefono"];
     }
 }
 
@@ -69,8 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminar"])) {
                 </div>
 
                 <div class="datos">
-                    <p class="titulo">Próximos conciertos:</p>
-                    <p class="info">Aún no hay conciertos. ¡Explora nuestra web y encuentra las mejores ofertas!</p>
+                        <p>Telefono : <?php echo htmlspecialchars($telefono) ?></p>
+ 
                 </div>
             </div>
             
