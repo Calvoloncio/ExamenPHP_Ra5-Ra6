@@ -16,7 +16,7 @@ $eventos = $eventoController->leer();
 <body>
     <div class="container">
         <h1>Eventos</h1>
-        
+         
         <div class="eventos-grid">
             <?php foreach ($eventos as $evento): ?>
                 <div class="evento-card">
