@@ -79,6 +79,7 @@ class UserController {
     public function singup(): bool {
         $nameN = trim($_POST["nameN"]);
         $email = trim($_POST["email"]);
+        $telefono = trim($_POST["telefono"]);
         $password = trim($_POST["password"]);
         $cpassword = trim($_POST["cpassword"]);
 
@@ -107,11 +108,11 @@ class UserController {
             }
         }
 
-        $query = "INSERT INTO usuarios (nameN, email, contrasena, imagen) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO usuarios (nameN, email, telefono, contrasena, imagen) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($query);
 
         try {
-            if ($stmt->execute([$nameN, $email, $password, $imagenNombre])) {
+            if ($stmt->execute([$nameN, $email, $telefono, $password, $imagenNombre])) {
                 $_SESSION["Singed"] = true;
                 header("Location: ../View/InicioSesion/index1.php");
                 return true;
