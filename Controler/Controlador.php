@@ -87,7 +87,7 @@ class UserController {
             echo "Las contraseñas no coinciden";
             return false;
         }
-
+ 
         if (empty($telefono)) {
         echo "El número de teléfono es obligatorio.";
         return false;
