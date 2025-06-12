@@ -75,6 +75,13 @@ class EventoController {
         return false;
     }
 
+    public function leer() {
+        $query = "SELECT * FROM eventos";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function eliminar($id): void {
         $query = "DELETE FROM eventos WHERE id = ?";
         $stmt = $this->pdo->prepare($query);
